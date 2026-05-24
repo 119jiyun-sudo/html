@@ -1,8 +1,52 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business KPI Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-홍길동 바보!!
-이몽룡 메롱
+  <header class="hero">
+    <div>
+      <p class="eyebrow">AppSheet_Dashboard_Sample</p>
+      <h1>비즈니스 KPI 대시보드</h1>
+      <p class="subtitle">판매 · 입고 · 재고 데이터를 한 화면에서 확인하는 웹 대시보드</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="kpi-grid">
+      <article class="kpi-card"><span>총 매출액</span><strong id="totalRevenue">-</strong><em>할인 반영 매출</em></article>
+      <article class="kpi-card"><span>총 판매 건수</span><strong id="totalSalesCount">-</strong><em>Sales 시트 기준</em></article>
+      <article class="kpi-card"><span>평균 주문금액</span><strong id="avgOrderValue">-</strong><em>주문건당 평균</em></article>
+      <article class="kpi-card warning"><span>재고 주의 품목</span><strong id="warningItems">-</strong><em>안전재고 기준</em></article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel">
+        <h2>카테고리별 매출</h2>
+        <canvas id="revenueChart"></canvas>
+      </article>
+      <article class="panel">
+        <h2>카테고리별 판매수량</h2>
+        <canvas id="quantityChart"></canvas>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>재고 현황</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>제품코드</th><th>제품명</th><th>카테고리</th><th>현재재고</th><th>상태</th></tr></thead>
+          <tbody id="inventoryRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>GitHub와 Netlify를 활용하여 배포한 정적 웹 대시보드</footer>
+  <script src="script.js"></script>
 </body>
 </html>
